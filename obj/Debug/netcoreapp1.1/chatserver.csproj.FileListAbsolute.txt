@@ -1,9 +1,0 @@
-C:\Users\hpats\Documents\CSharp\chatserver\bin\Debug\netcoreapp1.1\chatserver.deps.json
-C:\Users\hpats\Documents\CSharp\chatserver\bin\Debug\netcoreapp1.1\chatserver.runtimeconfig.json
-C:\Users\hpats\Documents\CSharp\chatserver\bin\Debug\netcoreapp1.1\chatserver.runtimeconfig.dev.json
-C:\Users\hpats\Documents\CSharp\chatserver\bin\Debug\netcoreapp1.1\chatserver.dll
-C:\Users\hpats\Documents\CSharp\chatserver\bin\Debug\netcoreapp1.1\chatserver.pdb
-C:\Users\hpats\Documents\CSharp\chatserver\obj\Debug\netcoreapp1.1\chatserver.AssemblyInfo.cs
-C:\Users\hpats\Documents\CSharp\chatserver\obj\Debug\netcoreapp1.1\chatserver.dll
-C:\Users\hpats\Documents\CSharp\chatserver\obj\Debug\netcoreapp1.1\chatserver.pdb
-C:\Users\hpats\Documents\CSharp\chatserver\obj\Debug\netcoreapp1.1\chatserver.csprojResolveAssemblyReference.cache

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Collections;
@@ -11,7 +12,8 @@ namespace chatserver
         public static Hashtable clientsList = new Hashtable();
         static void Main(string[] args)
         {
-            TcpListener serverSocket = new TcpListener(3500);
+            IPAddress ipAddress = Dns.GetHostEntry("localhost").AddressList[0];
+            TcpListener serverSocket = new TcpListener(ipAddress, 3500);
             TcpClient clientSocket = default(TcpClient);
             int counter = 0;
 
@@ -33,11 +35,11 @@ namespace chatserver
 
                 clientsList.Add(dataFromClient, clientSocket);
 
-                broadcast(dataFromClient + "Joined " + dataFromClient, false);
+                Broadcast(dataFromClient + "Joined ", dataFromClient, false);
 
                 Console.WriteLine(dataFromClient + " joined the chatroom ");
-                handleClinet client = new handleClinet();
-                client.startClient(clientSocket, dataFromClient, clientsList);
+                HandleClinet client = new HandleClinet();
+                client.StartClient(clientSocket, dataFromClient, clientsList);
             }
 
             clientSocket.Close();
@@ -46,7 +48,7 @@ namespace chatserver
             Console.ReadLine();
         }
 
-        public static void broadcast(string msg, string uName, bool flag)
+        public static void Broadcast(string msg, string uName, bool flag)
         {
             foreach(DictionaryEntry Item in clientsList)
             {
@@ -70,22 +72,22 @@ namespace chatserver
         }
     }
 
-    public class handleClinet
+    public class HandleClinet
     {
         TcpClient clientSocket;
         string clNo;
         Hashtable clientsList;
 
-        public void startClient(TcpClient inClientSocket, string clineNo, Hashtable clist)
+        public void StartClient(TcpClient inClientSocket, string clineNo, Hashtable clist)
         {
             this.clientSocket = inClientSocket;
             this.clNo = clineNo;
             this.clientsList = clist;
-            Thread ctThread = new Thread(doChat);
+            Thread ctThread = new Thread(DoChat);
             ctThread.Start();
         }
 
-        private void doChat()
+        private void DoChat()
         {
             int requestCount = 0;
             byte[] bytesFrom = new byte[10025];
@@ -106,7 +108,7 @@ namespace chatserver
                     Console.WriteLine("From client - " + clNo + ":" + dataFromClient);
                     rcount = Convert.ToString(requestCount);
 
-                    Program.broadcast(dataFromClient, clNo, true);
+                    Program.Broadcast(dataFromClient, clNo, true);
                 }
                 catch(Exception ex)
                 {
