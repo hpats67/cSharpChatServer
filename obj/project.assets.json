@@ -7033,7 +7033,8 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v1.1": [
-      "Microsoft.NETCore.App >= 1.1.2"
+      "Microsoft.NETCore.App >= 1.1.2",
+      "System.Collections >= 4.3.0"
     ]
   },
   "packageFolders": {
@@ -7050,9 +7051,6 @@
       "originalTargetFrameworks": [
         "netcoreapp1.1"
       ],
-      "files": {
-        "lib/netcoreapp1.1/chatserver.dll": "C:\\Users\\hpats\\Documents\\CSharp\\chatserver\\bin\\placeholder\\netcoreapp1.1\\chatserver.dll"
-      },
       "frameworks": {
         "netcoreapp1.1": {
           "projectReferences": {}
@@ -7064,7 +7062,12 @@
         "dependencies": {
           "Microsoft.NETCore.App": {
             "target": "Package",
-            "version": "1.1.2"
+            "version": "1.1.2",
+            "autoReferenced": true
+          },
+          "System.Collections": {
+            "target": "Package",
+            "version": "4.3.0"
           }
         }
       }
